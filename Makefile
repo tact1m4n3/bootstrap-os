@@ -1,7 +1,9 @@
 # Build docker envirorment: docker build buildenv -t my-os
 # Run docker envirorment:
-# --- Mac OS: docker run --rm -it -v /Users/toto/Documents/Programming/OS/MyOS:/root/env my-os
+# --- Mac OS: docker run --rm -it -v /Users/toto/Documents/Programming/OS/MyOS:/root/env my-os 
 # --- Windows: docker run --rm -it -v "%cd%":/root/env my-os
+
+# TODO: change "/Users/toto/Documents/Programming/OS/MyOS" with the location of your OS
 
 x86_64_kernel_linker_file := src/kernel/linker.ld
 
