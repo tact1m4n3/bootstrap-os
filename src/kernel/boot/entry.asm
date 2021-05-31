@@ -75,7 +75,6 @@ setup_page_tables:
     mov eax, page_table_l2 - KERNEL_OFFSET
     or eax, 0b11
     mov [page_table_l3 - KERNEL_OFFSET], eax
-    mov [page_table_l3 + 510 * 8 - KERNEL_OFFSET], eax
 
     mov eax, page_table_l1 - KERNEL_OFFSET
     or eax, 0b11
@@ -85,7 +84,7 @@ setup_page_tables:
     or eax, 0b11
     mov [page_table_l2 + 1 * 8 - KERNEL_OFFSET], eax
 
-    ; Mapping 4MB of memory
+    ; Mapping 2MB of memory
     mov ecx, 0
 .loop:
     mov eax, 0x1000
@@ -94,7 +93,7 @@ setup_page_tables:
     mov [page_table_l1 + ecx * 8 - KERNEL_OFFSET], eax
 
     inc ecx
-    cmp ecx, 1024
+    cmp ecx, 512
     jne .loop
 
     ret
@@ -140,7 +139,7 @@ page_table_l3:
 page_table_l2:
     resb 4096
 page_table_l1:
-    resb 2 * 4096
+    resb 4096
 stack_bottom:
     resb 4096 * 4
 stack_top:
