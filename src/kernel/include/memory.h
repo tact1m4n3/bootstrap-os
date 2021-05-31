@@ -1,0 +1,3 @@
+#pragma once
+
+#define KERNEL_OFFSET 0xFFFFFF8000000000

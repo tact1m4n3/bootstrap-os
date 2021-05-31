@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#define KERNEL_OFFSET 0xFFFFFF8000000000
+#include <memory.h>
 
 void kernel_main()
 {
